@@ -5,14 +5,14 @@ MAINTAINER Andrii Petruk <andrey.petruk@gmail.com>
 ENV ZK_VERSION=3.4.10 \
     logDir=/datalog \
     confDir=/conf \
-    dataDir=/data/zookeeper \
+    dataDir=/data \
     clientPort=2181 \
     maxClientCnxns=0 \
     tickTime=2000 \
     initLimit=10 \
     syncLimit=5 
 
-RUN apk add --no-cache wget ca-certificates  tar 
+RUN apk add --no-cache bash su-exec wget ca-certificates  tar 
 
 RUN wget http://www.apache.org/dist/zookeeper/zookeeper-$ZK_VERSION/zookeeper-$ZK_VERSION.tar.gz && \
     tar -zxvf zookeeper-$ZK_VERSION.tar.gz && \
